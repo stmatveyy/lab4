@@ -1,4 +1,6 @@
 ﻿#include "MaxIndex.h"
+#include "Vector.h"
+#include <iostream>
 
 int main() {
     int intArr[] = { 1, 3, 2 };
@@ -17,5 +19,7 @@ int main() {
     int doubleMaxIndex = findSecondMaxIndex(doubleArr, 5);
     std::cout << "Индекс второго максимума в массиве double: " << doubleMaxIndex << std::endl;
 
+
+   
     return 0;
 }

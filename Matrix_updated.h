@@ -1,5 +1,6 @@
 #pragma once
-#pragma once
+#ifndef MATRIXUPDATED_H
+#define MATRIXUPDATED_H
 #include <random>
 #include <ctime>
 #include <iostream>
@@ -30,7 +31,7 @@ public:
         delete[] data;
     }
 
-    friend std::ostream& operator<<(std::ostream& out, const Matrix& mat);
+    friend std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix);
 
     int*& operator[](unsigned int index) { // Возвращая ссылку на указатель, можем обращаться как matrix[][]
         return data[index];
@@ -120,7 +121,7 @@ public:
     bool operator!=(const Matrix& other) const {
         return !(*this == other);
     }
-
+    
     std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix) {
         for (unsigned int i = 0; i < matrix.m; ++i) {
             os << " " << std::endl;
@@ -134,3 +135,4 @@ public:
 };
 
 
+#endif
