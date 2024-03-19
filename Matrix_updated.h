@@ -20,7 +20,7 @@ public:
     Matrix(unsigned int m, unsigned int n) : m(m), n(n) {
         data = new T* [m];
         for (unsigned int i = 0; i < m; ++i) {
-            data[i] = new int[n];
+            data[i] = new T[n];
         }
     }
 
@@ -31,7 +31,17 @@ public:
         delete[] data;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix);
+    friend std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix) {
+            for (unsigned int i = 0; i < matrix.m; ++i) {
+                os << " " << std::endl;
+                for (unsigned int j = 0; j < matrix.n; ++j) {
+                    os << std::setw(3) << matrix.data[i][j] << " | ";
+                }
+                os << '\n';
+            }
+            return os;
+        
+    }
 
     int*& operator[](unsigned int index) { // Возвращая ссылку на указатель, можем обращаться как matrix[][]
         return data[index];
@@ -39,6 +49,7 @@ public:
 
     void fillRandom() {
         for (unsigned int i = 0; i < m; ++i) {
+            srand(time(0));
             for (unsigned int j = 0; j < n; ++j) {
                 data[i][j] = static_cast<T>(std::rand() % 10);
             }
@@ -122,16 +133,7 @@ public:
         return !(*this == other);
     }
     
-    std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix) {
-        for (unsigned int i = 0; i < matrix.m; ++i) {
-            os << " " << std::endl;
-            for (unsigned int j = 0; j < matrix.n; ++j) {
-                os << std::setw(3) << matrix.data[i][j] << " | ";
-            }
-            os << '\n';
-        }
-        return os;
-    }
+    
 };
 
 
