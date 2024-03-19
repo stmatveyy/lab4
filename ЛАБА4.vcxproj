@@ -130,6 +130,7 @@
     <ClCompile Include="ЛАБА4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Matrix_updated.h" />
     <ClInclude Include="MaxIndex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
