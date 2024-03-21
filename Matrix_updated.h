@@ -43,7 +43,7 @@ public:
         
     }
 
-    int*& operator[](unsigned int index) { // Возвращая ссылку на указатель, можем обращаться как matrix[][]
+    int* operator[](unsigned int index) { // Возвращая ссылку на указатель, можем обращаться как matrix[][]
         return data[index];
     }
 
