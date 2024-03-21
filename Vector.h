@@ -32,7 +32,7 @@ public:
 		return result;
 	}
 
-	T& operator[](size_t index) {
+	T* operator[](size_t index) {
 		return data[index];
 	}
 
